@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Semana 1 · Introdução à AWS — Slides</title>
+<meta name="description" content="Slides de apresentação da Semana 1: Introdução à Computação em Nuvem e à AWS.">
+<style>
+  :root{
+    --maxw: 1100px;
+    --radius: 14px;
+    --shadow: 0 10px 30px rgba(0,0,0,.12);
+    --c1:#1a73e8; --c1b:#4fc3f7;     /* azul header */
+    --c2:#f1c40f; --c2t:#856404;     /* amarelo info */
+    --c3:#2ecc71; --c3t:#1e8449;     /* verde */
+    --c4:#3498db; --c4t:#21618c;     /* azul */
+    --c5:#e91e63; --c5t:#ad1457;     /* rosa */
+    --c6:#f39c12; --c6t:#d68910;     /* laranja */
+    --bg:#f7f9fb; --ink:#2c3e50;
+  }
+  html,body{height:100%;margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 Arial, Helvetica, sans-serif;}
+  .deck{position:relative;height:100%;overflow:hidden;}
+  .slide{
+    box-sizing:border-box;
+    position:absolute; inset:0;
+    display:none; overflow:auto; -webkit-overflow-scrolling:touch;
+    padding:36px 24px 90px;
+  }
+  .slide.active{display:block;}
+  .center{max-width:var(--maxw); margin:0 auto;}
+  .card{
+    background:#fff; border-radius:var(--radius); box-shadow:var(--shadow);
+    padding:28px; margin:18px 0;
+    border:2px solid rgba(0,0,0,.06);
+  }
+  .banner{
+    color:#fff; text-align:center; border-radius:var(--radius);
+    padding:40px 20px; margin:10px 0 24px;
+    background:linear-gradient(135deg,var(--c1),var(--c1b));
+    box-shadow:var(--shadow);
+  }
+  h1{margin:0 0 8px;font-size:2.2em}
+  h2{margin:0 0 8px;font-size:1.5em}
+  h3{margin:16px 0 8px;font-size:1.25em}
+  .pill{display:inline-block; padding:6px 12px; border-radius:999px; font-weight:bold; font-size:.95em}
+  .pill.am{background:#fff3cd;border:2px solid var(--c2); color:var(--c2t)}
+  .pill.ve{background:#e8f5e9;border:2px solid var(--c3); color:var(--c3t)}
+  .pill.az{background:#ebf5fb;border:2px solid var(--c4); color:var(--c4t)}
+  .pill.rs{background:#fce4ec;border:2px solid var(--c5); color:var(--c5t)}
+  .grid{display:grid; gap:14px}
+  @media (min-width:860px){ .grid.cols-2{grid-template-columns:1fr 1fr} }
+  .kbd{font:600 .9em/1.2 ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; background:#f2f4f7; border:1px solid #e2e8f0; padding:2px 6px; border-radius:6px}
+  /* Nav */
+  .nav{
+    position:absolute; inset:auto 0 0 0; height:70px; background:rgba(255,255,255,.9);
+    display:flex; align-items:center; justify-content:center; gap:10px; backdrop-filter:saturate(180%) blur(6px);
+    border-top:1px solid #e9ecef;
+  }
+  .btn{
+    border:none; border-radius:12px; padding:10px 16px; font-weight:700; cursor:pointer;
+    box-shadow:var(--shadow); transition:.2s transform ease;
+  }
+  .btn:active{transform:translateY(1px)}
+  .btn.prev{background:#eef2ff;color:#3949ab}
+  .btn.next{background:#e3f2fd;color:#1565c0}
+  .btn.index{background:#f1f8e9;color:#2e7d32}
+  .progress{position:absolute; left:16px; bottom:24px; font-size:.9em; color:#607d8b}
+  .tip{font-size:.9em; color:#607d8b; margin-left:10px}
+  .img{
+    width:100%; border-radius:12px; border:2px solid #d6e4ff; box-shadow:var(--shadow);
+  }
+  a.link{color:#1565c0; font-weight:bold; text-decoration:none}
+  ul.chevron{padding-left:18px}
+  ul.chevron li{margin:6px 0}
+  .note{font-size:.95em; color:#455a64}
+</style>
+</head>
+<body>
+<div class="deck" id="deck">
+
+  <!-- SLIDE 1 -->
+  <section class="slide active" data-title="Bem-vindo à Nuvem">
+    <div class="center">
+      <div class="banner">
+        <h1>☁️ Semana 1 — Introdução à Computação em Nuvem e à AWS</h1>
+        <p>Do laboratório local para a nuvem: a Amazon conecta milhões de servidores para você.</p>
+      </div>
+
+      <div class="card">
+        <h2>🚀 Objetivos do encontro</h2>
+        <ul class="chevron">
+          <li>Entender o que é <strong>computação em nuvem</strong> e por que ela é diferente da virtualização local.</li>
+          <li>Reconhecer os <strong>modelos de serviço</strong> (IaaS, PaaS, SaaS) com exemplos práticos.</li>
+          <li>Abrir e navegar no <strong>Console AWS</strong> via <em>Sandbox</em> da AWS Academy.</li>
+          <li>Relacionar <strong>regiões / AZs / Edge</strong> com <strong>latência</strong> e disponibilidade.</li>
+        </ul>
+        <p class="note">💡 Analogia: se o VirtualBox é um “laboratório” dentro do seu computador, a AWS é um <em>planeta de laboratórios</em> interligados.</p>
+      </div>
+
+      <div class="grid cols-2">
+        <div class="card">
+          <h3>🔌 Tomada vs Nuvem</h3>
+          <p>Você não precisa conhecer a usina para usar a energia. Na nuvem, você <strong>consome infraestrutura sob demanda</strong>, sem comprar servidores.</p>
+          <span class="pill am">Pague pelo uso</span>
+          <span class="pill ve">Escalabilidade</span>
+          <span class="pill az">Alta disponibilidade</span>
+        </div>
+        <div class="card">
+          <h3>🖼️ Ilustração</h3>
+          <img class="img" src="https://upload.wikimedia.org/wikipedia/commons/0/08/Cloud_computing_icon.svg" alt="Conceito de Nuvem (ilustração)">
+          <p class="note">Se preferir, substitua por uma imagem hospedada no seu repositório.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 2 -->
+  <section class="slide" data-title="O que é Nuvem (IaaS, PaaS, SaaS)">
+    <div class="center">
+      <div class="banner" style="background:linear-gradient(135deg,#6a1b9a,#ba68c8)">
+        <h1>🧩 O que é Computação em Nuvem • IaaS / PaaS / SaaS</h1>
+        <p>Três níveis de responsabilidade entre provedor e usuário.</p>
+      </div>
+
+      <div class="grid cols-2">
+        <div class="card">
+          <h3>☁️ IaaS — Infraestrutura como Serviço</h3>
+          <p>Você gerencia SO e apps; a AWS entrega <strong>VMs, rede, storage</strong>. <br><b>Ex.: Amazon EC2</b></p>
+          <p class="note">🏠 Analogia: casa vazia — você leva os móveis e cuida da manutenção.</p>
+        </div>
+        <div class="card">
+          <h3>⚙️ PaaS — Plataforma como Serviço</h3>
+          <p>Você foca no <strong>código</strong>; a AWS cuida de SO, escalabilidade e atualizações. <br><b>Ex.: Elastic Beanstalk</b></p>
+          <p class="note">🏠 Analogia: casa mobiliada — pronta para usar.</p>
+        </div>
+      </div>
+
+      <div class="grid cols-2">
+        <div class="card">
+          <h3>💻 SaaS — Software como Serviço</h3>
+          <p>Aplicativo <strong>pronto</strong> via navegador. <br><b>Ex.: Gmail, Moodle, Office 365</b></p>
+          <p class="note">🏨 Analogia: hotel — serviço completo, é só aproveitar.</p>
+        </div>
+        <div class="card">
+          <h3>📌 Dica rápida</h3>
+          <ul class="chevron">
+            <li>IaaS → flexibilidade máxima.</li>
+            <li>PaaS → velocidade para desenvolver.</li>
+            <li>SaaS → praticidade imediata.</li>
+          </ul>
+          <span class="pill rs">Use o modelo certo para o problema certo</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 3 -->
+  <section class="slide" data-title="Acessando o Console AWS">
+    <div class="center">
+      <div class="banner" style="background:linear-gradient(135deg,#0d47a1,#42a5f5)">
+        <h1>🖥️ Acessando e Explorando o Console AWS</h1>
+        <p>Via Sandbox (Learner Lab) da AWS Academy</p>
+      </div>
+
+      <div class="card">
+        <h2>🧭 Passo a passo (resumo)</h2>
+        <ol>
+          <li>Acesse o curso: <a class="link" href="https://awsacademy.instructure.com/courses/144238" target="_blank">AWS Academy Cloud Foundations</a>.</li>
+          <li>No menu, abra <b>Sandbox / Learner Lab</b> e clique em <b>Start Lab</b>.</li>
+          <li>Com o lab ativo, clique em <b>Open Console</b> para entrar no <b>AWS Management Console</b>.</li>
+          <li>Confirme a <b>região</b> (topo direito) e use a <b>busca</b> para EC2, S3, VPC, Route 53.</li>
+          <li>Ao finalizar, volte ao Sandbox e clique em <b>End Lab</b>.</li>
+        </ol>
+        <p class="note">💳 No Sandbox, os recursos são controlados pela Academy; respeite o tempo do lab.</p>
+      </div>
+
+      <div class="grid cols-2">
+        <div class="card">
+          <h3>🔎 Reconhecendo o Console</h3>
+          <ul class="chevron">
+            <li>Barra de busca (topo)</li>
+            <li>Seletor de região (topo direito)</li>
+            <li>Lista de serviços</li>
+          </ul>
+          <p class="note">Dica: fixe nos favoritos (⭐) VPC, EC2, CloudFront e Route 53.</p>
+        </div>
+        <div class="card">
+          <h3>🖼️ Exemplo visual</h3>
+          <img class="img" src="https://raw.githubusercontent.com/awslabs/aws-cloudformation-templates/master/aws/services/EC2/images/console-ec2-sample.png" alt="Exemplo ilustrativo do Console AWS">
+          <p class="note">Se a imagem quebrar, substitua por uma captura sua hospedada no repositório.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 4 -->
+  <section class="slide" data-title="Infraestrutura Global na prática">
+    <div class="center">
+      <div class="banner" style="background:linear-gradient(135deg,#1565c0,#64b5f6)">
+        <h1>🌍 Infraestrutura Global na prática</h1>
+        <p>Regiões, Zonas de Disponibilidade, Edge Locations e escopo dos serviços</p>
+      </div>
+
+      <div class="grid cols-2">
+        <div class="card">
+          <h3>📦 Serviços Globais × Regionais</h3>
+          <ul class="chevron">
+            <li><b>Globais</b>: IAM, Route 53, CloudFront</li>
+            <li><b>Regionais</b>: EC2, VPC, Subnets, RDS, S3*</li>
+          </ul>
+          <p class="note">*S3 é regional: os dados residem na região escolhida.</p>
+        </div>
+        <div class="card">
+          <h3>⚡ Região e Latência</h3>
+          <ul class="chevron">
+            <li>Escolha região próxima aos usuários quando latência for crítica.</li>
+            <li>Preços e disponibilidade de serviços variam por região.</li>
+            <li>Projetos resilientes usam <b>múltiplas AZs</b>.</li>
+          </ul>
+          <span class="pill az">South America (São Paulo)</span>
+          <span class="pill ve">us-east-2 (Ohio)</span>
+        </div>
+      </div>
+
+      <div class="grid cols-2">
+        <div class="card">
+          <h3>🏢 Regiões e AZs</h3>
+          <p><b>Regiões</b> são áreas geográficas; cada uma possui várias <b>AZs</b> (data centers independentes de energia/rede) para alta disponibilidade.</p>
+        </div>
+        <div class="card">
+          <h3>🚀 Edge Locations</h3>
+          <p>Pontos de presença para entrega de conteúdo (ex.: <b>CloudFront</b>) próximos do usuário final — reduzindo a <b>latência</b>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 5 -->
+  <section class="slide" data-title="Revisão & Próximos passos">
+    <div class="center">
+      <div class="banner" style="background:linear-gradient(135deg,#f39c12,#f1c40f)">
+        <h1>📝 Revisão & Próximos passos</h1>
+        <p>Consolidação e chamada para ação no Moodle</p>
+      </div>
+
+      <div class="card">
+        <h2>🎯 O que você deve levar desta aula</h2>
+        <ul class="chevron">
+          <li>Diferença entre virtualização local e computação em nuvem.</li>
+          <li>Modelos IaaS, PaaS e SaaS com exemplos.</li>
+          <li>Como iniciar o <b>Sandbox</b> e abrir o <b>Console AWS</b>.</li>
+          <li>Infraestrutura global: <b>Regiões, AZs e Edge</b> e impacto na latência.</li>
+        </ul>
+      </div>
+
+      <div class="grid cols-2">
+        <div class="card">
+          <h3>📚 Continue no Moodle</h3>
+          <p>Na <b>Lição da Semana 1</b> você encontrará <b>5 questões</b> para consolidar o conteúdo desta apresentação.</p>
+          <p><a class="link" href="#" onclick="alert('Abra a Lição no Moodle da turma.'); return false;">🔗 Acessar a Lição no Moodle</a></p>
+          <p class="note">As perguntas cobrem: conceitos de nuvem, IaaS/PaaS/SaaS, Regiões/AZs/Edge e Sandbox/Console.</p>
+        </div>
+        <div class="card">
+          <h3>🔗 Links úteis</h3>
+          <ul class="chevron">
+            <li><a class="link" target="_blank" href="https://awsacademy.instructure.com/courses/144238">AWS Academy Cloud Foundations</a></li>
+            <li><a class="link" target="_blank" href="https://aws.amazon.com/pt/what-is-cloud-computing/">O que é computação em nuvem?</a></li>
+            <li><a class="link" target="_blank" href="https://aws.amazon.com/pt/about-aws/global-infrastructure/">Infraestrutura Global AWS</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card" style="text-align:center">
+        <span class="pill ve">Use ← → para navegar</span>
+        <span class="pill am">Tecla <span class="kbd">F</span> ativa/desativa tela cheia</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- NAV -->
+  <div class="nav">
+    <button class="btn prev" id="prevBtn">← Anterior</button>
+    <button class="btn index" id="indexBtn">☰ Índice</button>
+    <button class="btn next" id="nextBtn">Próximo →</button>
+    <div class="progress" id="progress">1 / 5</div>
+    <div class="tip">atalhos: ← → • <span class="kbd">F</span> tela cheia</div>
+  </div>
+</div>
+
+<script>
+  (function(){
+    const slides=[...document.querySelectorAll('.slide')];
+    let i=0;
+    const prev=document.getElementById('prevBtn');
+    const next=document.getElementById('nextBtn');
+    const idx=document.getElementById('indexBtn');
+    const prog=document.getElementById('progress');
+
+    function show(n){
+      i=(n+slides.length)%slides.length;
+      slides.forEach((s,k)=>s.classList.toggle('active',k===i));
+      prog.textContent=(i+1)+' / '+slides.length;
+      document.title = slides[i].dataset.title+' — Semana 1 · Introdução à AWS';
+    }
+    function nextSlide(){ show(i+1) }
+    function prevSlide(){ show(i-1) }
+
+    next.onclick=nextSlide;
+    prev.onclick=prevSlide;
+    idx.onclick=function(){
+      const list=slides.map((s,k)=>`${k+1}. ${s.dataset.title}`).join('\n');
+      const ans=prompt('Ir para o slide (1-'+slides.length+'):\n\n'+list,'');
+      const n=parseInt(ans,10);
+      if(!isNaN(n) && n>=1 && n<=slides.length) show(n-1);
+    };
+
+    document.addEventListener('keydown',e=>{
+      if(e.key==='ArrowRight') nextSlide();
+      if(e.key==='ArrowLeft')  prevSlide();
+      if(e.key.toLowerCase()==='f'){
+        const el=document.documentElement;
+        if(!document.fullscreenElement){ el.requestFullscreen?.() } else { document.exitFullscreen?.() }
+      }
+    });
+
+    // link direto para um slide: ?s=3
+    const url = new URL(location.href);
+    const s = parseInt(url.searchParams.get('s')||'1',10);
+    if(!isNaN(s) && s>=1 && s<=slides.length) show(s-1); else show(0);
+  })();
+</script>
+</body>
+</html>
