@@ -1,43 +1,40 @@
+<svg viewBox="0 0 512 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ícone de computação em nuvem">
+  <defs>
+    <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#e3f2fd"/>
+      <stop offset="100%" stop-color="#bbdefb"/>
+    </linearGradient>
+    <linearGradient id="g2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#90caf9"/>
+      <stop offset="100%" stop-color="#42a5f5"/>
+    </linearGradient>
+  </defs>
 
-  <svg viewBox="0 0 512 320" role="img" aria-label="Ícone de computação em nuvem"
-       style="width:100%; height:auto; border-radius:12px; border:2px solid #d6e4ff; box-shadow: 0 10px 30px rgba(0,0,0,.12); background: #ffffff">
-    <!-- Fundo gradiente suave -->
-    <defs>
-      <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
-        <stop offset="0%" stop-color="#e3f2fd"/>
-        <stop offset="100%" stop-color="#bbdefb"/>
-      </linearGradient>
-      <linearGradient id="g2" x1="0" y1="0" x2="1" y2="1">
-        <stop offset="0%" stop-color="#90caf9"/>
-        <stop offset="100%" stop-color="#42a5f5"/>
-      </linearGradient>
-    </defs>
+  <!-- fundo -->
+  <rect x="0" y="0" width="512" height="320" fill="url(#g1)"/>
 
-    <!-- “solo”/base -->
-    <rect x="0" y="0" width="512" height="320" fill="url(#g1)"></rect>
+  <!-- forma da nuvem -->
+  <g transform="translate(0, 10)">
+    <path d="M360 170c28 0 52 19 58 44 27 5 46 28 46 55 0 31-26 56-58 56H136c-40 0-72-30-72-68 0-32 22-59 51-66 9-41 46-72 90-72 30 0 57 13 74 33 8-3 16-5 25-5 31 0 57 18 68 43z"
+          fill="url(#g2)" stroke="#1976d2" stroke-width="4" opacity="0.95"/>
+  </g>
 
-    <!-- Nuvem -->
-    <g transform="translate(0, 10)">
-      <path d="M360 170c28 0 52 19 58 44 27 5 46 28 46 55 0 31-26 56-58 56H136c-40 0-72-30-72-68 0-32 22-59 51-66 9-41 46-72 90-72 30 0 57 13 74 33 8-3 16-5 25-5 31 0 57 18 68 43z"
-            fill="url(#g2)" stroke="#1976d2" stroke-width="4" opacity="0.95"/>
-    </g>
+  <!-- nós da rede -->
+  <g fill="#1e88e5" stroke="#0d47a1" stroke-width="3">
+    <circle cx="96"  cy="260" r="16"/>
+    <circle cx="224" cy="260" r="16"/>
+    <circle cx="352" cy="260" r="16"/>
+    <circle cx="464" cy="260" r="16"/>
+  </g>
 
-    <!-- Nós (dispositivos) -->
-    <g fill="#1e88e5" stroke="#0d47a1" stroke-width="3">
-      <circle cx="96"  cy="260" r="16"></circle>
-      <circle cx="224" cy="260" r="16"></circle>
-      <circle cx="352" cy="260" r="16"></circle>
-      <circle cx="464" cy="260" r="16"></circle>
-    </g>
+  <!-- linhas de ligação -->
+  <g stroke="#1565c0" stroke-width="4" stroke-linecap="round">
+    <path d="M96 244 C 110 220, 180 210, 240 210"/>
+    <path d="M224 244 C 250 222, 300 212, 330 210"/>
+    <path d="M352 244 C 360 230, 400 220, 420 210"/>
+    <path d="M464 244 C 440 220, 400 210, 360 210"/>
+  </g>
 
-    <!-- Ligações para a nuvem -->
-    <g stroke="#1565c0" stroke-width="4" stroke-linecap="round">
-      <path d="M96 244 C 110 220, 180 210, 240 210"/>
-      <path d="M224 244 C 250 222, 300 212, 330 210"/>
-      <path d="M352 244 C 360 230, 400 220, 420 210"/>
-      <path d="M464 244 C 440 220, 400 210, 360 210"/>
-    </g>
-
-    <!-- Sombra suave da nuvem -->
-    <ellipse cx="256" cy="288" rx="160" ry="10" fill="rgba(0,0,0,.06)"></ellipse>
-  </svg>
+  <!-- sombra -->
+  <ellipse cx="256" cy="288" rx="160" ry="10" fill="rgba(0,0,0,.06)"/>
+</svg>
