@@ -1,6 +1,3 @@
-<!-- Substitui o <img ...> por este SVG inline -->
-<div class="card">
-  <h3>🖼️ Ilustração</h3>
 
   <svg viewBox="0 0 512 320" role="img" aria-label="Ícone de computação em nuvem"
        style="width:100%; height:auto; border-radius:12px; border:2px solid #d6e4ff; box-shadow: 0 10px 30px rgba(0,0,0,.12); background: #ffffff">
@@ -44,6 +41,3 @@
     <!-- Sombra suave da nuvem -->
     <ellipse cx="256" cy="288" rx="160" ry="10" fill="rgba(0,0,0,.06)"></ellipse>
   </svg>
-
-  <p class="note">SVG inline: sem dependência externa e pronto para o GitPages.</p>
-</div>
