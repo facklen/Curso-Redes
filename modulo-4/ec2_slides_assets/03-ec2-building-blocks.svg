@@ -1,36 +1,22 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540">
-  <rect width="100%" height="100%" fill="white"/>
-  <g font-family="Arial" fill="#0B214A">
-    <text x="480" y="60" font-size="22" text-anchor="middle">Blocos do EC2</text>
-  </g>
-  <g>
-    <rect x="80" y="110" width="220" height="120" rx="12" fill="#E8F0FE" stroke="#1A73E8"/>
-    <text x="190" y="155" font-size="16" font-family="Arial" text-anchor="middle" fill="#0B214A">AMI</text>
-    <text x="190" y="180" font-size="12" font-family="Arial" text-anchor="middle" fill="#0B214A">Imagem do SO</text>
-  </g>
-  <g>
-    <rect x="370" y="110" width="220" height="120" rx="12" fill="#FFF3E0" stroke="#FF9900"/>
-    <text x="480" y="155" font-size="16" font-family="Arial" text-anchor="middle" fill="#0B214A">Tipo</text>
-    <text x="480" y="180" font-size="12" font-family="Arial" text-anchor="middle" fill="#0B214A">CPU/RAM</text>
-  </g>
-  <g>
-    <rect x="660" y="110" width="220" height="120" rx="12" fill="#E8F5E9" stroke="#2E7D32"/>
-    <text x="770" y="155" font-size="16" font-family="Arial" text-anchor="middle" fill="#0B214A">EBS</text>
-    <text x="770" y="180" font-size="12" font-family="Arial" text-anchor="middle" fill="#0B214A">Disco</text>
-  </g>
-  <g>
-    <rect x="80" y="270" width="220" height="120" rx="12" fill="#F3E5F5" stroke="#6A1B9A"/>
-    <text x="190" y="315" font-size="16" font-family="Arial" text-anchor="middle" fill="#0B214A">SG</text>
-    <text x="190" y="340" font-size="12" font-family="Arial" text-anchor="middle" fill="#0B214A">Firewall</text>
-  </g>
-  <g>
-    <rect x="370" y="270" width="220" height="120" rx="12" fill="#ECEFF1" stroke="#90A4AE"/>
-    <text x="480" y="315" font-size="16" font-family="Arial" text-anchor="middle" fill="#0B214A">VPC</text>
-    <text x="480" y="340" font-size="12" font-family="Arial" text-anchor="middle" fill="#0B214A">Rede</text>
-  </g>
-  <g>
-    <rect x="660" y="270" width="220" height="120" rx="12" fill="#FFE0B2" stroke="#FF9900"/>
-    <text x="770" y="315" font-size="16" font-family="Arial" text-anchor="middle" fill="#0B214A">Chave</text>
-    <text x="770" y="340" font-size="12" font-family="Arial" text-anchor="middle" fill="#0B214A">SSH .pem</text>
-  </g>
+<svg xmlns='http://www.w3.org/2000/svg' width='960' height='540'>
+<rect width='100%' height='100%' fill='white'/>
+<g font-family='Arial' fill='#0B214A'><text x='480' y='60' font-size='22' text-anchor='middle'>Blocos do EC2</text></g>
+<g><rect x='80' y='110' width='220' height='120' rx='12' fill='#E8F0FE' stroke='#1A73E8'/>
+<text x='190' y='155' font-size='16' font-family='Arial' text-anchor='middle'>AMI</text>
+<text x='190' y='180' font-size='12' font-family='Arial' text-anchor='middle'>Imagem do SO</text></g>
+<g><rect x='370' y='110' width='220' height='120' rx='12' fill='#FFF3E0' stroke='#FF9900'/>
+<text x='480' y='155' font-size='16' font-family='Arial' text-anchor='middle'>Tipo</text>
+<text x='480' y='180' font-size='12' font-family='Arial' text-anchor='middle'>CPU/RAM</text></g>
+<g><rect x='660' y='110' width='220' height='120' rx='12' fill='#E8F5E9' stroke='#2E7D32'/>
+<text x='770' y='155' font-size='16' font-family='Arial' text-anchor='middle'>EBS</text>
+<text x='770' y='180' font-size='12' font-family='Arial' text-anchor='middle'>Disco</text></g>
+<g><rect x='80' y='270' width='220' height='120' rx='12' fill='#F3E5F5' stroke='#6A1B9A'/>
+<text x='190' y='315' font-size='16' font-family='Arial' text-anchor='middle'>SG</text>
+<text x='190' y='340' font-size='12' font-family='Arial' text-anchor='middle'>Firewall</text></g>
+<g><rect x='370' y='270' width='220' height='120' rx='12' fill='#ECEFF1' stroke='#90A4AE'/>
+<text x='480' y='315' font-size='16' font-family='Arial' text-anchor='middle'>VPC</text>
+<text x='480' y='340' font-size='12' font-family='Arial' text-anchor='middle'>Rede</text></g>
+<g><rect x='660' y='270' width='220' height='120' rx='12' fill='#FFE0B2' stroke='#FF9900'/>
+<text x='770' y='315' font-size='16' font-family='Arial' text-anchor='middle'>Chave</text>
+<text x='770' y='340' font-size='12' font-family='Arial' text-anchor='middle'>SSH .pem</text></g>
 </svg>

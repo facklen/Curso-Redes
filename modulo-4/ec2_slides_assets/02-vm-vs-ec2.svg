@@ -1,30 +1,24 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540">
-  <rect width="100%" height="100%" fill="#ECEFF1"/>
-  <g>
-    <rect x="70" y="80" width="360" height="360" rx="18" fill="white" stroke="#1A73E8" stroke-width="2"/>
-    <text x="250" y="120" font-size="20" font-family="Arial" text-anchor="middle" fill="#0B214A">VM Local</text>
-    <rect x="110" y="160" width="280" height="80" rx="10" fill="#E3F2FD"/>
-    <text x="250" y="205" font-size="14" font-family="Arial" text-anchor="middle" fill="#0B214A">Seu computador</text>
-    <rect x="110" y="260" width="280" height="140" rx="10" fill="#BBDEFB"/>
-    <text x="250" y="305" font-size="14" font-family="Arial" text-anchor="middle" fill="#0B214A">VirtualBox</text>
-    <text x="250" y="335" font-size="13" font-family="Arial" text-anchor="middle" fill="#0B214A">CPU/RAM/Disco locais</text>
-  </g>
-  <g>
-    <rect x="530" y="80" width="360" height="360" rx="18" fill="white" stroke="#FF9900" stroke-width="2"/>
-    <text x="710" y="120" font-size="20" font-family="Arial" text-anchor="middle" fill="#0B214A">EC2 na Nuvem</text>
-    <rect x="570" y="160" width="280" height="80" rx="10" fill="#FFE0B2"/>
-    <text x="710" y="205" font-size="14" font-family="Arial" text-anchor="middle" fill="#0B214A">Data centers AWS</text>
-    <rect x="570" y="260" width="280" height="140" rx="10" fill="#FFCC80"/>
-    <text x="710" y="305" font-size="14" font-family="Arial" text-anchor="middle" fill="#0B214A">EC2 + VPC + SG</text>
-    <text x="710" y="335" font-size="13" font-family="Arial" text-anchor="middle" fill="#0B214A">Acesso remoto via SSH</text>
-  </g>
-  <g>
-    <path d="M430,260 L530,260" stroke="#0B214A" stroke-width="3" marker-end="url(#a)"/>
-    <defs>
-      <marker id="a" markerWidth="10" markerHeight="10" refX="10" refY="3" orient="auto">
-        <path d="M0,0 L10,3 L0,6 z" fill="#0B214A"/>
-      </marker>
-    </defs>
-    <text x="480" y="245" font-size="13" font-family="Arial" text-anchor="middle" fill="#0B214A">Internet / SSH</text>
-  </g>
+<svg xmlns='http://www.w3.org/2000/svg' width='960' height='540'>
+<rect width='100%' height='100%' fill='#ECEFF1'/>
+<g>
+  <rect x='70' y='80' width='360' height='360' rx='18' fill='white' stroke='#1A73E8' stroke-width='2'/>
+  <text x='250' y='120' font-size='20' font-family='Arial' text-anchor='middle' fill='#0B214A'>VM Local</text>
+  <rect x='110' y='160' width='280' height='80' rx='10' fill='#E3F2FD'/>
+  <text x='250' y='205' font-size='14' font-family='Arial' text-anchor='middle' fill='#0B214A'>Seu computador</text>
+  <rect x='110' y='260' width='280' height='140' rx='10' fill='#BBDEFB'/>
+  <text x='250' y='305' font-size='14' font-family='Arial' text-anchor='middle' fill='#0B214A'>VirtualBox</text>
+</g>
+<g>
+  <rect x='530' y='80' width='360' height='360' rx='18' fill='white' stroke='#FF9900' stroke-width='2'/>
+  <text x='710' y='120' font-size='20' font-family='Arial' text-anchor='middle' fill='#0B214A'>EC2 na Nuvem</text>
+  <rect x='570' y='160' width='280' height='80' rx='10' fill='#FFE0B2'/>
+  <text x='710' y='205' font-size='14' font-family='Arial' text-anchor='middle' fill='#0B214A'>Data centers AWS</text>
+  <rect x='570' y='260' width='280' height='140' rx='10' fill='#FFCC80'/>
+  <text x='710' y='305' font-size='14' font-family='Arial' text-anchor='middle' fill='#0B214A'>EC2 + VPC + SG</text>
+</g>
+<defs><marker id='a' markerWidth='10' markerHeight='10' refX='10' refY='3' orient='auto'>
+  <path d='M0,0 L10,3 L0,6 z' fill='#0B214A'/>
+</marker></defs>
+<path d='M430,260 L530,260' stroke='#0B214A' stroke-width='3' marker-end='url(#a)'/>
+<text x='480' y='245' font-size='13' font-family='Arial' text-anchor='middle' fill='#0B214A'>Internet / SSH</text>
 </svg>

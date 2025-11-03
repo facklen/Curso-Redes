@@ -1,30 +1,18 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540">
-  <rect width="100%" height="100%" fill="#FAFAFA"/>
-  <g font-family="Arial" fill="#0B214A">
-    <text x="480" y="60" font-size="22" text-anchor="middle">Fluxo de conexão SSH</text>
-  </g>
-  <g>
-    <rect x="80" y="120" width="210" height="300" rx="14" fill="#E3F2FD" stroke="#1A73E8"/>
-    <text x="185" y="155" font-size="16" font-family="Arial" text-anchor="middle" fill="#0B214A">Seu PC</text>
-    <text x="185" y="180" font-size="12" font-family="Arial" text-anchor="middle" fill="#0B214A">ssh -i chave.pem</text>
-  </g>
-  <g>
-    <rect x="670" y="120" width="210" height="300" rx="14" fill="#FFF3E0" stroke="#FF9900"/>
-    <text x="775" y="155" font-size="16" font-family="Arial" text-anchor="middle" fill="#0B214A">EC2</text>
-    <text x="775" y="180" font-size="12" font-family="Arial" text-anchor="middle" fill="#0B214A">ubuntu@IP</text>
-  </g>
-  <g>
-    <rect x="350" y="190" width="260" height="60" rx="10" fill="#E8F5E9" stroke="#2E7D32"/>
-    <text x="480" y="225" font-size="14" font-family="Arial" text-anchor="middle" fill="#0B214A">Security Group • Porta 22</text>
-  </g>
-  <path d="M290,270 C350,300 610,300 670,270" stroke="#0B214A" stroke-width="3" fill="none" marker-end="url(#arr)"/>
-  <defs>
-    <marker id="arr" markerWidth="10" markerHeight="10" refX="10" refY="3" orient="auto">
-      <path d="M0,0 L10,3 L0,6 z" fill="#0B214A"/>
-    </marker>
-  </defs>
-  <g>
-    <circle cx="480" cy="340" r="26" fill="#6A1B9A"/>
-    <text x="480" y="346" font-size="14" font-family="Arial" text-anchor="middle" fill="white">.pem</text>
-  </g>
+<svg xmlns='http://www.w3.org/2000/svg' width='960' height='540'>
+<rect width='100%' height='100%' fill='#FAFAFA'/>
+<g font-family='Arial' fill='#0B214A'><text x='480' y='60' font-size='22' text-anchor='middle'>Fluxo de conexão SSH</text></g>
+<g><rect x='80' y='120' width='210' height='300' rx='14' fill='#E3F2FD' stroke='#1A73E8'/>
+<text x='185' y='155' font-size='16' font-family='Arial' text-anchor='middle'>Seu PC</text>
+<text x='185' y='180' font-size='12' font-family='Arial' text-anchor='middle'>ssh -i chave.pem</text></g>
+<g><rect x='670' y='120' width='210' height='300' rx='14' fill='#FFF3E0' stroke='#FF9900'/>
+<text x='775' y='155' font-size='16' font-family='Arial' text-anchor='middle'>EC2</text>
+<text x='775' y='180' font-size='12' font-family='Arial' text-anchor='middle'>ubuntu@IP</text></g>
+<g><rect x='350' y='190' width='260' height='60' rx='10' fill='#E8F5E9' stroke='#2E7D32'/>
+<text x='480' y='225' font-size='14' font-family='Arial' text-anchor='middle'>Security Group • Porta 22</text></g>
+<defs><marker id='arr' markerWidth='10' markerHeight='10' refX='10' refY='3' orient='auto'>
+  <path d='M0,0 L10,3 L0,6 z' fill='#0B214A'/>
+</marker></defs>
+<path d='M290,270 C350,300 610,300 670,270' stroke='#0B214A' stroke-width='3' fill='none' marker-end='url(#arr)'/>
+<circle cx='480' cy='340' r='26' fill='#6A1B9A'/>
+<text x='480' y='346' font-size='14' font-family='Arial' text-anchor='middle' fill='white'>.pem</text>
 </svg>
