@@ -5,54 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>Amazon EC2 — Slides (AWS Foundations · Redes)</title>
 <style>
-  :root {
-    --bg1: #0B214A;
-    --bg2: #1A73E8;
-    --accent: #FF9900;
-    --text: #F5F7FA;
-    --muted: #C9D6E2;
-  }
-  * { box-sizing: border-box; }
-  html, body { height: 100%; margin: 0; font-family: Arial, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; color: var(--text); }
-  body { background: linear-gradient(135deg, var(--bg1), var(--bg2)); overflow: hidden; }
-  .slide {
-    position: absolute; inset: 0; display: grid; grid-template-rows: auto 1fr auto;
-    padding: 40px 56px; opacity: 0; transform: translateX(30px) scale(0.98);
-    transition: opacity .4s ease, transform .45s ease; pointer-events: none;
-  }
-  .slide.active { opacity: 1; transform: none; pointer-events: all; }
-  header { display:flex; align-items:center; gap:12px; }
-  header .dot { width:12px; height:12px; border-radius:50%; background: var(--accent); }
-  header h1 { margin:0; font-size: 28px; letter-spacing:.3px; }
-  .content { align-self:center; display:grid; grid-template-columns: 1.1fr 1fr; gap: 36px; }
-  .card {
-    background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.18);
-    border-radius: 16px; padding: 24px; box-shadow: 0 10px 30px rgba(0,0,0,.25);
-    backdrop-filter: blur(6px);
-  }
-  .title { font-size: 56px; font-weight: 800; line-height:1.05; margin: 0; }
-  .subtitle { font-size: 18px; color: var(--muted); margin-top: 8px; }
-  ul { margin: 12px 0 0 18px; padding:0; line-height:1.6; }
-  li::marker { color: var(--accent); }
-  .img { width: 100%; border-radius: 16px; overflow: hidden; border: 1px solid rgba(255,255,255,0.18); background: rgba(0,0,0,0.15); }
-  .img img { width: 100%; display:block; }
-  footer { display:flex; justify-content: space-between; align-items:center; gap:18px; }
-  .nav { display:flex; gap:10px; }
-  .btn {
-    background: rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.25); color: #fff;
-    padding: 10px 14px; border-radius: 10px; cursor: pointer; font-weight: 600;
-  }
-  .btn:hover { background: rgba(255,255,255,0.2); }
-  .progress { height: 6px; background: rgba(255,255,255,0.2); border-radius: 999px; overflow: hidden; flex: 1; }
-  .progress > div { height: 100%; background: var(--accent); width: 0%; transition: width .35s ease; }
-  .k { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; background: rgba(0,0,0,.35); padding:2px 6px; border-radius:6px; }
-  .two { grid-template-columns: 1fr 1fr; }
-  @media (max-width: 980px) {
-    .content { grid-template-columns: 1fr; }
-  }
+  :root { --bg1:#0B214A; --bg2:#1A73E8; --accent:#FF9900; --text:#F5F7FA; --muted:#C9D6E2; }
+  *{box-sizing:border-box} html,body{height:100%;margin:0;font-family:Arial,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;color:var(--text)}
+  body{background:linear-gradient(135deg,var(--bg1),var(--bg2));overflow:hidden}
+  .slide{position:absolute;inset:0;display:grid;grid-template-rows:auto 1fr auto;padding:40px 56px;opacity:0;transform:translateX(30px) scale(.98);transition:.4s ease;pointer-events:none}
+  .slide.active{opacity:1;transform:none;pointer-events:all}
+  header{display:flex;align-items:center;gap:12px} header .dot{width:12px;height:12px;border-radius:50%;background:var(--accent)}
+  header h1{margin:0;font-size:28px;letter-spacing:.3px}
+  .content{align-self:center;display:grid;grid-template-columns:1.1fr 1fr;gap:36px}
+  .card{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:16px;padding:24px;box-shadow:0 10px 30px rgba(0,0,0,.25);backdrop-filter:blur(6px)}
+  .title{font-size:56px;font-weight:800;line-height:1.05;margin:0}
+  .subtitle{font-size:18px;color:var(--muted);margin-top:8px}
+  ul{margin:12px 0 0 18px;padding:0;line-height:1.6} li::marker{color:var(--accent)}
+  .img{width:100%;border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,.18);background:rgba(0,0,0,0.15)} .img img{width:100%;display:block}
+  footer{display:flex;justify-content:space-between;align-items:center;gap:18px}
+  .nav{display:flex;gap:10px}
+  .btn{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.25);color:#fff;padding:10px 14px;border-radius:10px;cursor:pointer;font-weight:600}
+  .btn:hover{background:rgba(255,255,255,.2)}
+  .progress{height:6px;background:rgba(255,255,255,.2);border-radius:999px;overflow:hidden;flex:1}
+  .progress>div{height:100%;background:var(--accent);width:0%;transition:width .35s ease}
+  .k{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;background:rgba(0,0,0,.35);padding:2px 6px;border-radius:6px}
+  .two{grid-template-columns:1fr 1fr} .three{grid-template-columns:1fr 1fr 1fr}
+  @media (max-width:980px){.content{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
+
 <section class="slide active">
   <header><span class="dot"></span><h1>Amazon EC2 — Máquinas virtuais na nuvem</h1></header>
   <div class="content">
@@ -67,11 +45,9 @@
     </div>
     <div class="img"><img src="ec2_slides_assets/01-ec2-overview.svg" alt="Amazon EC2 overview"/></div>
   </div>
-  <footer>
-    <div class="nav"><button class="btn" data-prev>◀︎ Anterior</button><button class="btn" data-next>Próximo ▶︎</button></div>
-    <div class="progress"><div></div></div>
-  </footer>
+  <footer><div class="nav"><button class="btn" data-prev>◀︎</button><button class="btn" data-next>▶︎</button></div><div class="progress"><div></div></div></footer>
 </section>
+
 <section class="slide">
   <header><span class="dot"></span><h1>O que é o Amazon EC2?</h1></header>
   <div class="content two">
@@ -94,6 +70,7 @@
   </div>
   <footer><div class="nav"><button class="btn" data-prev>◀︎</button><button class="btn" data-next>▶︎</button></div><div class="progress"><div></div></div></footer>
 </section>
+
 <section class="slide">
   <header><span class="dot"></span><h1>VM local × EC2</h1></header>
   <div class="content">
@@ -109,23 +86,160 @@
   </div>
   <footer><div class="nav"><button class="btn" data-prev>◀︎</button><button class="btn" data-next>▶︎</button></div><div class="progress"><div></div></div></footer>
 </section>
+
 <section class="slide">
-  <header><span class="dot"></span><h1>Conceitos fundamentais</h1></header>
+  <header><span class="dot"></span><h1>Conceitos — visão geral</h1></header>
   <div class="content">
     <div class="img"><img src="ec2_slides_assets/03-ec2-building-blocks.svg" alt="Blocos do EC2"/></div>
     <div class="card">
       <ul>
         <li><b>AMI:</b> imagem do sistema</li>
         <li><b>Tipo:</b> CPU/RAM</li>
-        <li><b>EBS:</b> disco virtual</li>
-        <li><b>SG:</b> firewall (portas)</li>
+        <li><b>EBS:</b> disco</li>
+        <li><b>SG:</b> firewall</li>
         <li><b>VPC:</b> rede</li>
-        <li><b>Chave .pem:</b> acesso por SSH</li>
+        <li><b>Chave .pem:</b> acesso</li>
       </ul>
     </div>
   </div>
   <footer><div class="nav"><button class="btn" data-prev>◀︎</button><button class="btn" data-next>▶︎</button></div><div class="progress"><div></div></div></footer>
 </section>
+
+<section class="slide">
+  <header><span class="dot"></span><h1>AMI — Imagem da Máquina</h1></header>
+  <div class="content two">
+    <div class="card">
+      <ul>
+        <li>Modelo do sistema (ex.: Ubuntu, Amazon Linux 2, Windows)</li>
+        <li>Define SO + pacotes base</li>
+        <li>Pode ser pública, privada ou do Marketplace</li>
+      </ul>
+    </div>
+    <div class="card">
+      <p class="subtitle"><b>Dica:</b> escolha AMIs oficiais e atualizadas.</p>
+      <ul>
+        <li>Evite AMIs desconhecidas</li>
+        <li>Prefira AMIs HVM (modernas)</li>
+      </ul>
+    </div>
+  </div>
+  <footer><div class="nav"><button class="btn" data-prev>◀︎</button><button class="btn" data-next>▶︎</button></div><div class="progress"><div></div></div></footer>
+</section>
+
+<section class="slide">
+  <header><span class="dot"></span><h1>Tipo de instância</h1></header>
+  <div class="content two">
+    <div class="card">
+      <ul>
+        <li>Quantidade de vCPU e memória (ex.: <b>t2.micro</b>)</li>
+        <li>Impacta desempenho e custo</li>
+        <li>Famílias: uso geral, computação, memória, GPU</li>
+      </ul>
+    </div>
+    <div class="card">
+      <p class="subtitle"><b>Escolha pedagógica:</b> <code>t2.micro</code> (free tier)</p>
+      <ul>
+        <li>Bom para labs e testes</li>
+        <li>Para carga maior, escolha famílias mais potentes</li>
+      </ul>
+    </div>
+  </div>
+  <footer><div class="nav"><button class="btn" data-prev>◀︎</button><button class="btn" data-next>▶︎</button></div><div class="progress"><div></div></div></footer>
+</section>
+
+<section class="slide">
+  <header><span class="dot"></span><h1>Volume EBS — Armazenamento</h1></header>
+  <div class="content two">
+    <div class="card">
+      <ul>
+        <li>Disco da instância (persiste quando parada)</li>
+        <li>Tamanhos e tipos (gp3, io1 etc.)</li>
+        <li>Snapshots para backup</li>
+      </ul>
+    </div>
+    <div class="card">
+      <ul>
+        <li><b>Parar</b> = mantém EBS (custo de armazenamento)</li>
+        <li><b>Encerrar</b> = pode apagar o volume (conferir flag)</li>
+      </ul>
+    </div>
+  </div>
+  <footer><div class="nav"><button class="btn" data-prev>◀︎</button><button class="btn" data-next>▶︎</button></div><div class="progress"><div></div></div></footer>
+</section>
+
+<section class="slide">
+  <header><span class="dot"></span><h1>Security Group — Firewall</h1></header>
+  <div class="content two">
+    <div class="card">
+      <ul>
+        <li>Regras de entrada e saída</li>
+        <li>Ex.: abrir 22/SSH apenas para <em>My IP</em></li>
+        <li>Stateful (respostas liberadas automaticamente)</li>
+      </ul>
+    </div>
+    <div class="card">
+      <ul>
+        <li>Evite <code>0.0.0.0/0</code> em produção</li>
+        <li>Abra somente portas necessárias</li>
+      </ul>
+    </div>
+  </div>
+  <footer><div class="nav"><button class="btn" data-prev>◀︎</button><button class="btn" data-next>▶︎</button></div><div class="progress"><div></div></div></footer>
+</section>
+
+<section class="slide">
+  <header><span class="dot"></span><h1>Par de chaves — Acesso SSH</h1></header>
+  <div class="content two">
+    <div class="card">
+      <ul>
+        <li>Baixe a chave <code>.pem</code> e proteja: <code>chmod 400</code></li>
+        <li>Autenticação sem senha</li>
+        <li>Comando: <span class="k">ssh -i chave.pem ubuntu@IP</span></li>
+      </ul>
+    </div>
+    <div class="card">
+      <ul>
+        <li>Guarde a chave com segurança</li>
+        <li>Rotacione se necessário</li>
+      </ul>
+    </div>
+  </div>
+  <footer><div class="nav"><button class="btn" data-prev>◀︎</button><button class="btn" data-next>▶︎</button></div><div class="progress"><div></div></div></footer>
+</section>
+
+<section class="slide">
+  <header><span class="dot"></span><h1>VPC — Rede virtual</h1></header>
+  <div class="content two">
+    <div class="card">
+      <ul>
+        <li>Sub-redes públicas e privadas</li>
+        <li>Roteamento, internet gateway, NAT</li>
+        <li>Isolamento por projeto/turma</li>
+      </ul>
+    </div>
+    <div class="card">
+      <p class="subtitle">Para os labs, usar VPC padrão é suficiente.</p>
+    </div>
+  </div>
+  <footer><div class="nav"><button class="btn" data-prev>◀︎</button><button class="btn" data-next>▶︎</button></div><div class="progress"><div></div></div></footer>
+</section>
+
+<section class="slide">
+  <header><span class="dot"></span><h1>Elastic IP — IP público fixo</h1></header>
+  <div class="content">
+    <div class="img"><img src="ec2_slides_assets/05-elastic-ip.svg" alt="Elastic IP"/></div>
+    <div class="card">
+      <ul>
+        <li>Endereço IP público que <b>não muda</b> ao parar/iniciar a instância.</li>
+        <li>Você pode associar/desassociar a diferentes instâncias.</li>
+        <li>Útil para serviços que precisam de IP estável (ex.: servidor web).</li>
+      </ul>
+      <p class="subtitle"><b>Observação:</b> pode haver custo quando não estiver associado a uma instância em uso.</p>
+    </div>
+  </div>
+  <footer><div class="nav"><button class="btn" data-prev>◀︎</button><button class="btn" data-next>▶︎</button></div><div class="progress"><div></div></div></footer>
+</section>
+
 <section class="slide">
   <header><span class="dot"></span><h1>Lançando uma instância — visão geral</h1></header>
   <div class="content two">
@@ -149,6 +263,7 @@
   </div>
   <footer><div class="nav"><button class="btn" data-prev>◀︎</button><button class="btn" data-next>▶︎</button></div><div class="progress"><div></div></div></footer>
 </section>
+
 <section class="slide">
   <header><span class="dot"></span><h1>Passo a passo no Console</h1></header>
   <div class="content two">
@@ -171,6 +286,7 @@
   </div>
   <footer><div class="nav"><button class="btn" data-prev>◀︎</button><button class="btn" data-next>▶︎</button></div><div class="progress"><div></div></div></footer>
 </section>
+
 <section class="slide">
   <header><span class="dot"></span><h1>Conexão via SSH</h1></header>
   <div class="content">
@@ -185,6 +301,7 @@ ssh -i MINHA-CHAVE.pem ubuntu@IP-PUBLICO
   </div>
   <footer><div class="nav"><button class="btn" data-prev>◀︎</button><button class="btn" data-next>▶︎</button></div><div class="progress"><div></div></div></footer>
 </section>
+
 <section class="slide">
   <header><span class="dot"></span><h1>Ciclo de vida da instância</h1></header>
   <div class="content two">
@@ -205,6 +322,7 @@ ssh -i MINHA-CHAVE.pem ubuntu@IP-PUBLICO
   </div>
   <footer><div class="nav"><button class="btn" data-prev>◀︎</button><button class="btn" data-next>▶︎</button></div><div class="progress"><div></div></div></footer>
 </section>
+
 <section class="slide">
   <header><span class="dot"></span><h1>Segurança essencial</h1></header>
   <div class="content two">
@@ -225,6 +343,7 @@ ssh -i MINHA-CHAVE.pem ubuntu@IP-PUBLICO
   </div>
   <footer><div class="nav"><button class="btn" data-prev>◀︎</button><button class="btn" data-next>▶︎</button></div><div class="progress"><div></div></div></footer>
 </section>
+
 <section class="slide">
   <header><span class="dot"></span><h1>Laboratório — AWS Academy</h1></header>
   <div class="content two">
@@ -241,26 +360,35 @@ ssh -i MINHA-CHAVE.pem ubuntu@IP-PUBLICO
   </div>
   <footer><div class="nav"><button class="btn" data-prev>◀︎</button><button class="btn" data-next>▶︎</button></div><div class="progress"><div></div></div></footer>
 </section>
+
 <section class="slide">
   <header><span class="dot"></span><h1>Resumo</h1></header>
-  <div class="content two">
+  <div class="content three">
     <div class="card">
       <ul>
         <li>EC2 = VM na nuvem</li>
-        <li>AMI, Tipo, EBS, SG, VPC, Chave</li>
-        <li>SSH com .pem</li>
+        <li>AMI, Tipo</li>
+        <li>EBS, SG</li>
       </ul>
     </div>
     <div class="card">
       <ul>
-        <li>Ciclo de vida: parar × encerrar</li>
-        <li>Boas práticas de segurança</li>
-        <li>Lab do Academy concluído</li>
+        <li>VPC, Chave .pem</li>
+        <li>Elastic IP</li>
+        <li>SSH</li>
+      </ul>
+    </div>
+    <div class="card">
+      <ul>
+        <li>Ciclo de vida</li>
+        <li>Boas práticas</li>
+        <li>Lab concluído</li>
       </ul>
     </div>
   </div>
   <footer><div class="nav"><button class="btn" data-prev>◀︎</button><button class="btn" data-next>▶︎</button></div><div class="progress"><div></div></div></footer>
 </section>
+
 <section class="slide">
   <header><span class="dot"></span><h1>Próximo tema: Comunicação e Protocolos</h1></header>
   <div class="content two">
@@ -277,6 +405,7 @@ ssh -i MINHA-CHAVE.pem ubuntu@IP-PUBLICO
   </div>
   <footer><div class="nav"><button class="btn" data-prev>◀︎</button><button class="btn" data-next>▶︎</button></div><div class="progress"><div></div></div></footer>
 </section>
+
 <script>
   const slides = [...document.querySelectorAll('.slide')];
   let idx = 0;
